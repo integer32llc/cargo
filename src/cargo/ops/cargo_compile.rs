@@ -113,7 +113,7 @@ impl Packages {
             Packages::OptOut(ref opt_out) => ws.members()
                 .map(Package::package_id)
                 .map(PackageIdSpec::from_package_id)
-                .filter(|p| opt_out.iter().position(|x| *x == p.name()).is_none())
+                .filter(|p| opt_out.iter().position(|x| x == p.name().as_str()).is_none())
                 .collect(),
             Packages::Packages(ref packages) if packages.is_empty() => {
                 vec![PackageIdSpec::from_package_id(ws.current()?.package_id())]

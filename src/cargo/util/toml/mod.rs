@@ -1072,7 +1072,7 @@ impl TomlManifest {
                 );
             }
 
-            let mut dep = replacement.to_dependency(spec.name(), cx, None)?;
+            let mut dep = replacement.to_dependency(&spec.name(), cx, None)?;
             {
                 let version = spec.version().ok_or_else(|| {
                     format_err!(
